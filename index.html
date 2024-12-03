@@ -14,8 +14,64 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Design Your Car Model</title>
+
+    <!-- CSS EQUIVALENTS OF TAILWIND CLASSES
+     
+        bg-gray-100 { 
+                        background-color: #f3f4f6; 
+                            /* A very light gray color */ 
+                    }
+
+        right-0 {
+                    right: 0; 
+                        /* Position element at the right edge of its containing block */
+                }
+    
+        py-2 { 
+                padding-top: 0.5rem; 
+                padding-bottom: 0.5rem;
+                    /* Add vertical padding (top and bottom) of 0.5rem (8px) */
+            }
+
+        fixed {
+                position: fixed;
+                /* This positions an element relative to the viewport, 
+                   meaning it stays in the same position even as you scroll. */
+            }
+
+        top-0 {
+                top: 0;
+                /* This places the element at the very top of its containing block or 
+                    viewport (depending on the position).*/
+        }
+
+        left-0 {
+                left: 0;
+                /* This aligns the element to the left edge 
+                   of its containing block or viewport. */
+        }
+
+        .text-center {
+                        text-align: center;
+                            /* Centers text horizontally */
+                    }
+
+        font-semibold {
+                        font-weight: 600; 
+                            /* This sets the font weight to a medium-bold level. 
+                                It's slightly lighter than font-bold (font-weight: 700) but 
+                                heavier than font-medium (font-weight: 500).
+                    }
+
+    -->
 </head>
 <body>
+    <div id="top-bar" class="bg-gray-100 fixed top-0 right-0 left-0 py-2">
+        <!-- TOP BAR --> 
+         <p class="text-center py-2 font-semibold">
+            0% APR available for qualified buyers
+         </p>
+    </div> 
     
     <!-- LOAD JS -->
     <script src="js/main.js"></script>
