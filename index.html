@@ -21,6 +21,73 @@
      
     CSS EQUIVALENTS OF TAILWIND CLASSES
 
+        .sticky {
+                    position: sticky; 
+                        /* A hybrid between relative and fixed positioning. 
+
+                            The element will scroll normally until its top edge is 6rem (96px) away from the top of the viewport.
+
+                            At that point, it will "stick" to the viewport, maintaining that top-24 position.
+
+                            Once the element's parent container is scrolled out of view, the sticky effect stops.
+                        */
+        }
+
+        .top-24 {
+                    top: 6rem; 
+                    /* 24 * 0.25rem = 6rem */
+                }
+
+
+        .h-96 {
+                height: 24rem; 
+                    /* 96 * 0.25rem = 24rem */
+            }
+
+        .bg-gray-200 {
+                        background-color: #e5e7eb; 
+                            /* Gray 200 color from Tailwind's palette */
+                    }
+
+        .overflow-hidden{
+                            overflow: hidden;
+                                /* No scrollbars */
+        }
+
+        .mb-4 {
+                margin-bottom: 1rem; 
+                    /* 4 * 0.25rem = 1rem */
+        }
+
+        .max-w-full {
+                        max-width: 100%;
+                    }
+
+        .h-auto {
+                    height: auto; 
+                        /*  Height of an element is automatically determined by its content. The browser calculates the height of the element based on the height of its children and the content inside it, plus any padding or borders. */
+        }
+
+        .transform {
+                        transform: translate(); 
+                            /* Placeholder for transformation; used to apply transforms like scale, rotate, etc. */
+                    }
+
+        .scale-125 {
+                        transform: scale(1.25); 
+                            /* Scales the element to 125% of its original size */
+        }
+
+        .justify-center{
+
+                        display: flex; 
+                            /* Required for justify-content to apply */
+
+                        justify-content: center; 
+                            /* Centers child elements horizontally */
+
+                    }
+
        .z-2 {
                 z-index: 2; 
                 /* The z-index property controls the stack order of an element. 
@@ -205,7 +272,16 @@
 
     <main class="flex flex-col md:flex-row justify-between px-4 md:px-10 py-6">
         <section class="w-full md:w-3/4">
-            IMAGE SECTION
+            <div class="sticky top-24">
+                 <div class="h-96 bg-gray-200 flex items-center justify-center overflow-hidden mb-4">
+                    <!-- CAR EXTERIOR IMAGE -->
+                    <img src="images/model-y-stealth-grey.jpg" alt="Model Y" class="max-w-full h-auto transform scale-125" id="exterior-image">
+                 </div>
+                 <div class="h-96 bg-gray-200 flex items-center justify-center overflow-hidden mb-4">
+                    <!-- CAR INTERIOR IMAGE -->
+                    <img src="images/model-y-interior-dark.jpg" alt="Model Y Interior" class="max-w-full h-auto transform scale-125" id="interior-image">
+                 </div>
+            </div>
         </section>
         <aside class="w-full md:w-1/3 pl-0 md:pl-8 mt-6 md:mt-0 z-2">
             SIDEBAR
