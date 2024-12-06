@@ -21,6 +21,23 @@
      
     CSS EQUIVALENTS OF TAILWIND CLASSES
 
+        .space-x-4 {
+                        display: flex; /* or grid */
+                        column-gap: 1rem; 
+                            /* Adds horizontal spacing of 1rem (16px) between child elements.
+                               This uses the gap property in Flexbox or Grid layouts. */
+                    }
+
+        .w-12 {
+                width: 3rem; /* 48px */
+            }
+
+
+        .w-22 {
+                width: 5.5rem; /* 88px */
+            }
+
+
         .my-8 {
                     margin-top: 2rem; 
                     margin-bottom: 2rem; 
@@ -369,6 +386,18 @@
                     </button>
                  </div>
              </div>
+
+             <!-- INTERIOR BUTTONS -->
+              <div class="my-8" id="interior-buttons">
+                <h3 class="font-semibold mb-2">Interior Color</h3>
+                 <div class="flex space-x-4">
+                    <button class="transition-transform duration-300 hover:scale-110">
+                        <img src="images/button-dark.avif" alt="Dark" class="w-12">
+                    </button>
+                    <button class="transition-transform duration-300 hover:scale-110">
+                        <img src="images/button-light.avif" alt="Light" class="w-12">
+                    </button>
+              </div>
         </aside>
     </main>
     
