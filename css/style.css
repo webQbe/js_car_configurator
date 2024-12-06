@@ -69,7 +69,7 @@
 
                             appearance: none; 
                                 /* Removes the browser's default visual appearance.
-                                
+
                             display: inline-block;
                             vertical-align: middle;
                             background-color: #ffffff; /* Default white background 
@@ -239,6 +239,11 @@
         .bg-gray-200 {
                         background-color: #e5e7eb; 
                             /* Gray 200 color from Tailwind's palette 
+
+                        /* Hover state 
+                        &:hover {
+                            background-color: #9ca3af; /* For hover:bg-gray-400 
+                        }
                     }
 
         .overflow-hidden{
