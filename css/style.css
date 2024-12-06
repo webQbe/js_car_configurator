@@ -57,9 +57,21 @@
                                     Alpha: 0.05 (5% opacity, making the shadow very subtle).
                 }
 
+        .space-x-2 {
+                     gap: 0.5rem;
+                        /* Adds 0.5rem (8px) horizontal spacing between child 
+                              elements inside a flex container.
+        }        
+
         .space-x-3 {
                      gap: 0.75rem;
                         /* Adds 0.75rem (12px) horizontal spacing between child 
+                              elements inside a flex container.
+        }
+
+        .space-y-4 {
+                     gap: 1rem;
+                        /* Adds 1rem (16px) vertical spacing between child 
                               elements inside a flex container.
         }
 
