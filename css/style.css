@@ -17,6 +17,83 @@
 
 /*  CSS EQUIVALENTS OF TAILWIND CLASSES
 
+        .border {
+                    border: 1px solid #e5e7eb;
+                        /* Adds a 1px solid border with a default color of #e5e7eb 
+                        (light gray).
+                }
+
+        .p-4 {
+                padding: 1rem; /* 16px
+        }
+
+        .mb-8 {
+                margin-bottom: 2rem; /* 32px
+             }
+
+        .shadow {
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+                        /* Adds a subtle box shadow.
+
+                            0 (horizontal offset):
+                            The shadow is not shifted horizontally, so it is directly aligned with the element's edges.
+
+                            1px (vertical offset):
+                            The shadow is shifted 1 pixel downward relative to the element.
+
+                            2px (blur radius):
+                            The shadow is blurred over a radius of 2 pixels, softening its edges. The larger this value, the more diffuse the shadow appears.
+
+                            0 (spread radius):
+                            The shadow doesn’t spread or shrink. If a positive value were provided, the shadow would grow outward; a negative value would make it smaller.
+
+                            rgba(0, 0, 0, 0.05) (color):
+                                The shadow color is a semi-transparent black.
+                                rgba(0, 0, 0, 0.05) means:
+                                    Red: 0
+                                    Green: 0
+                                    Blue: 0 (black)
+                                    Alpha: 0.05 (5% opacity, making the shadow very subtle).
+                }
+
+        .space-x-3 {
+                     gap: 0.75rem;
+                        /* Adds 0.75rem (12px) horizontal spacing between child 
+                              elements inside a flex container.
+        }
+
+        .form-checkbox {
+
+            /* Styles checkboxes with a clean, consistent appearance. 
+
+                            appearance: none; 
+                                /* Removes the browser's default visual appearance.
+                                
+                            display: inline-block;
+                            vertical-align: middle;
+                            background-color: #ffffff; /* Default white background 
+                            border: 1px solid #d1d5db; /* Light gray border 
+                            border-radius: 0.25rem; /* Rounded corners 
+                            height: 1rem; /* Base height 
+                            width: 1rem; /* Base width 
+                            outline: none;
+                            cursor: pointer;
+                            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .h-5 {
+                height: 1.25rem; /* 20px
+            }
+
+        .w-5 {
+                width: 1.25rem; /* 20px
+        }
+
+        .text-blue-600 {
+                            color: #2563eb;
+                       }
+
         .py-4 {
                 padding-top: 1rem;
                 padding-bottom: 1rem;
