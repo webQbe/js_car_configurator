@@ -17,6 +17,20 @@
 
 /*  CSS EQUIVALENTS OF TAILWIND CLASSES
 
+        .text-2xl {
+                    font-size: 1.5rem; /* 24px 
+                    line-height: 2rem; /* 32px 
+                        /* Sets the font size for the element to be significantly larger,
+                             often used for headings or emphasis.
+                }
+
+        .text-lg {
+                    font-size: 1.125rem; /* 18px 
+                    line-height: 1.75rem; /* 28px 
+                       /*  Sets the font size for the element to be slightly 
+                            larger than the base font size.
+        }
+
         .border {
                     border: 1px solid #e5e7eb;
                         /* Adds a 1px solid border with a default color of #e5e7eb 
@@ -231,7 +245,7 @@
 
                             The element will scroll normally until its top edge is 6rem (96px) away from the top of the viewport.
 
-                            At that point, it will "stick" to the viewport, maintaining that top-24 position.
+                            At that point, element will "stick" to the viewport, maintaining that top-24 position.
 
                             Once the element's parent container is scrolled out of view, the sticky effect stops.
                         
@@ -239,7 +253,7 @@
 
         .top-24 {
                     top: 6rem; 
-                    /* 24 * 0.25rem = 6rem 
+                    /* 24 * 0.25rem = 6rem /* 96px
                 }
 
 
