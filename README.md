@@ -13,5 +13,5 @@
 
 - Pricing is calculated based on selected options 
 - `Total Price`, `Estimated Payment Breakdown` and `Monthly Payment` are displayed at the bottom 
-- Sliding notification bar that appears when scrolled to the top of the page
+- Animated top notification bar that appears when scrolled to the top of the page
 - Responsive design - items stack on top of each other on smaller screens

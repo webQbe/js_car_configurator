@@ -15,6 +15,21 @@
      
 }
 
+#top-bar {
+    transition: transform 0.5s ease-in-out;
+        /* Display top bar going up and down animation */
+}
+
+.visible-bar {
+    transform: translateY(0); 
+    /* Push downwards to visible area */
+}
+
+.hidden-bar {
+    transform: translateY(-100%); 
+    /* Push upwards from visible area */
+}
+
 /*  CSS EQUIVALENTS OF TAILWIND CLASSES
 
         .border-t {
