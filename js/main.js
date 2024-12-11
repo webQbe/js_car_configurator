@@ -6,6 +6,14 @@ const extImg = document.querySelector('#exterior-image');
 const intImg = document.querySelector('#interior-image');
 const wheelBtns = document.querySelector('#wheel-buttons');
 
+// Globals
+let selectedColor = 'Stealth Grey';
+
+const selectedOptions = {
+    'Performance Wheels': false,
+    'Performance Package': false,
+    'Full Self-Driving': false,
+};
 
 
 // Handle Top Bar On-Scroll
@@ -64,12 +72,13 @@ const handleColorBtnClick = (event) => {
 
         // Change Exterior Image
         if(event.currentTarget === extColorBtns){
+
             // If #extColorBtns element clicked
             // Get clicked button's color
-            const color = button.querySelector('img').alt;
+            selectedColor = button.querySelector('img').alt;
 
-            // Select exterior image from array
-            extImg.src = exteriorImages[color];
+            // Update External Image
+            updateExtImage();
         }
 
         // Change Interior Image
@@ -85,6 +94,20 @@ const handleColorBtnClick = (event) => {
     }
 };
 
+// Update Exterior Image based on Color & Wheels
+const updateExtImage = () => {
+
+    // If 'Performance Wheels' option is true,
+    // Set performanceSuffix to '-performance', otherwise to empty string
+    const performanceSuffix = selectedOptions['Performance Wheels'] ? '-performance' :'';
+
+    const colorKey = selectedColor in exteriorImages ? selectedColor : 'Stealth Grey';
+        /* The expression 'selectedColor in exteriorImages' evaluates to true if selectedColor matches one of the keys in exteriorImages. Otherwise, colorKey is set to 'Stealth Grey'. */ 
+
+    // Select Exterior Image based on Selected Color & Performance Suffix
+    extImg.src = exteriorImages[colorKey].replace('.jpg', `${performanceSuffix}.jpg`)
+
+}
 
 // Wheel Selection
 const handleWheelBtnClick = (event) => {
@@ -99,12 +122,12 @@ const handleWheelBtnClick = (event) => {
         // Add Removed classes to target button
         event.target.classList.add('bg-gray-700', 'text-white');
 
-        // Set to True if target button text include 'Performance'
-        const selectedWheel = event.target.textContent.includes('Performance');
+        // Set 'Performance Wheels' option to True
+        // if target button text include 'Performance'
+       selectedOptions['Performance Wheels'] = event.target.textContent.includes('Performance');
 
-        // Select Image with Wheels
-        extImg.src = selectedWheel ? 'images/model-y-stealth-grey-performance.jpg'
-                                    : 'images/model-y-stealth-grey.jpg';
+       // Update Exterior Image
+        updateExtImage();
         
     }
 }
