@@ -30,6 +30,12 @@ const exteriorImages = {
     'Quicksilver':'.images/model-y-quicksilver.jpg',
 }
 
+// interiorImages Array 
+const interiorImages = {
+    Dark: './images/model-y-interior-dark.jpg',
+    Light: './images/model-y-interior-light.jpg',
+}
+
 // Handle Color Selection
 const handleColorBtnClick = (event) => {
     let button; // Initialize button
