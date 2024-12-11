@@ -1,5 +1,11 @@
 // Define DOM Elements
 const topBar = document.querySelector('#top-bar');
+const extColorBtns = document.querySelector('#exterior-buttons');
+const intColorBtns = document.querySelector('#interior-buttons');
+const extImg = document.querySelector('#exterior-image');
+const intImg = document.querySelector('#interior-image');
+
+
 
 // Handle Top Bar On-Scroll
 const handleScroll = () => {
@@ -11,8 +17,15 @@ const handleScroll = () => {
 
 };
 
+// Handle Color Selection
+const handleColorBtnClick = (event) => {
+    let button; // Initialize button
+    console.log(event.target.tagName); // Log clicked tag name
+};
+
 // Event Listeners
-window.addEventListener('scroll', () => requestAnimationFrame(handleScroll)); /* The requestAnimationFrame() method is used to optimize the performance of the handleScroll function during a scroll event. 
+window.addEventListener('scroll', () => requestAnimationFrame(handleScroll)); 
+/* The requestAnimationFrame() method is used to optimize the performance of the handleScroll function during a scroll event. 
 
 Why requestAnimationFrame() is used:
 
@@ -30,3 +43,9 @@ Why requestAnimationFrame() is used:
         It ensures that the handleScroll function does not execute more often than necessary, thereby reducing CPU usage and conserving battery life on devices.
 
 */
+
+// Listen for exterior color button click
+extColorBtns.addEventListener('click', handleColorBtnClick);
+
+// Listen for interior color button click
+intColorBtns.addEventListener('click', handleColorBtnClick); 
