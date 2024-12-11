@@ -17,6 +17,19 @@ const handleScroll = () => {
 
 };
 
+// Image Mapping
+
+// exteriorImages Array 
+// Key 'alt name' : Value 'image location'
+const exteriorImages = {
+    'Stealth Grey':'.images/model-y-stealth-grey.jpg',
+    'Pearl White':'.images/model-y-pearl-white.jpg',
+    'Deep Blue':'.images/model-y-deep-blue-metallic.jpg',
+    'Solid Black':'.images/model-y-solid-black.jpg',
+    'Ultra Red':'.images/model-y-ultra-red.jpg',
+    'Quicksilver':'.images/model-y-quicksilver.jpg',
+}
+
 // Handle Color Selection
 const handleColorBtnClick = (event) => {
     let button; // Initialize button
