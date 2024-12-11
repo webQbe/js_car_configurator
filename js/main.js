@@ -21,6 +21,25 @@ const handleScroll = () => {
 const handleColorBtnClick = (event) => {
     let button; // Initialize button
     console.log(event.target.tagName); // Log clicked tag name
+
+    if(event.target.tagName === 'IMG'){
+        // If img element is clicked, get closest button
+        button = event.target.closest('button');
+
+    } else if(event.target.tagName === 'BUTTON'){
+        // If button element is clicked, get target 
+        button = event.target;
+    }
+
+    if(button){
+
+        // Get all buttons
+        const buttons = event.currentTarget.querySelectorAll('button');
+
+        // Remove .btn-selected class from buttons
+        buttons.forEach((btn) => btn.classList.remove('btn-selected'));
+        
+    }
 };
 
 // Event Listeners
