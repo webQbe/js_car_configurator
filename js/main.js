@@ -98,6 +98,13 @@ const handleWheelBtnClick = (event) => {
 
         // Add Removed classes to target button
         event.target.classList.add('bg-gray-700', 'text-white');
+
+        // Set to True if target button text include 'Performance'
+        const selectedWheel = event.target.textContent.includes('Performance');
+
+        // Select Image with Wheels
+        extImg.src = selectedWheel ? 'images/model-y-stealth-grey-performance.jpg'
+                                    : 'images/model-y-stealth-grey.jpg';
         
     }
 }
