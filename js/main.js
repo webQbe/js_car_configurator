@@ -36,8 +36,11 @@ const handleColorBtnClick = (event) => {
         // Get all buttons
         const buttons = event.currentTarget.querySelectorAll('button');
 
-        // Remove .btn-selected class from buttons
+        // Remove existing .btn-selected class from buttons
         buttons.forEach((btn) => btn.classList.remove('btn-selected'));
+
+        // Add .btn-selected class to target button
+        button.classList.add('btn-selected');
         
     }
 };
