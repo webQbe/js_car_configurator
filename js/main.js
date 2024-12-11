@@ -6,9 +6,17 @@ const extImg = document.querySelector('#exterior-image');
 const intImg = document.querySelector('#interior-image');
 const wheelBtns = document.querySelector('#wheel-buttons');
 const performanceBtn = document.querySelector('#performance-btn');
+const totalPriceOutput = document.querySelector('#total-price');
 
 // Globals
+
+const basePrice = 52490;
+let currentPrice = basePrice;
+
 let selectedColor = 'Stealth Grey';
+
+
+// Options
 
 const selectedOptions = {
     'Performance Wheels': false,
@@ -16,6 +24,35 @@ const selectedOptions = {
     'Full Self-Driving': false,
 };
 
+const pricing = {
+    'Performance Wheels': 2500,
+    'Performance Package': 5000,
+    'Full Self-Driving': 8500,
+    'Accessories': {
+        'Center Console Trays': 35,
+        'Sunshade': 105,
+        'All-Weather Interior Liners': 225,
+    }
+};
+
+
+const updateTotalPrice = () => {
+
+    // Reset Current Price to Base Price
+    currentPrice = basePrice;
+
+    if(selectedOptions['Performance Wheels']){
+
+        // If 'Performance Wheels' option is selected
+        // Append 'Performance Wheels' price to current price
+        currentPrice += pricing['Performance Wheels'];
+
+    }
+
+    // Update Total Price in UI
+    totalPriceOutput.textContent = `$${currentPrice.toLocaleString()}`;
+
+};
 
 // Handle Top Bar On-Scroll
 const handleScroll = () => {
@@ -126,8 +163,11 @@ const handleWheelBtnClick = (event) => {
         // if target button text include 'Performance'
        selectedOptions['Performance Wheels'] = event.target.textContent.includes('Performance');
 
-       // Update Exterior Image
+        // Update Exterior Image
         updateExtImage();
+
+        // Get Total Price
+        updateTotalPrice();
         
     }
 };
@@ -137,7 +177,6 @@ const handlePerformanceBtnClick = () => {
 
     performanceBtn.classList.toggle('bg-gray-700');
     performanceBtn.classList.toggle('text-white');
-
     /* The .toggle() method, used on the classList property, adds or 
         removes a class from an element's list of classes. 
         
@@ -157,7 +196,11 @@ const handlePerformanceBtnClick = () => {
             true if the class was added.
             false if the class was removed.
         */
+
 };
+
+
+
 
 // Event Listeners
 
