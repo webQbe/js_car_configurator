@@ -70,6 +70,16 @@ const handleColorBtnClick = (event) => {
             // Select exterior image from array
             extImg.src = exteriorImages[color];
         }
+
+        // Change Interior Image
+        if(event.currentTarget === intColorBtns){
+            // If #intColorBtns element clicked
+            // Get clicked button's color
+            const color = button.querySelector('img').alt;
+
+        // Select interior image from array
+            intImg.src = interiorImages[color];
+        }
         
     }
 };
