@@ -4,6 +4,7 @@ const extColorBtns = document.querySelector('#exterior-buttons');
 const intColorBtns = document.querySelector('#interior-buttons');
 const extImg = document.querySelector('#exterior-image');
 const intImg = document.querySelector('#interior-image');
+const wheelBtns = document.querySelector('#wheel-buttons');
 
 
 
@@ -84,6 +85,23 @@ const handleColorBtnClick = (event) => {
     }
 };
 
+
+// Wheel Selection
+const handleWheelBtnClick = (event) => {
+    if(event.target.tagName === 'BUTTON'){
+        // If button element is clicked,
+        // Get wheel buttons
+        const buttons = document.querySelectorAll('#wheel-buttons button');
+
+        // Loop Through buttons and Remove existing classes
+        buttons.forEach((btn) => btn.classList.remove('bg-gray-700', 'text-white')); 
+
+        // Add Removed classes to target button
+        event.target.classList.add('bg-gray-700', 'text-white');
+        
+    }
+}
+
 // Event Listeners
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll)); 
 /* The requestAnimationFrame() method is used to optimize the performance of the handleScroll function during a scroll event. 
@@ -110,3 +128,6 @@ extColorBtns.addEventListener('click', handleColorBtnClick);
 
 // Listen for interior color button click
 intColorBtns.addEventListener('click', handleColorBtnClick); 
+
+// Listen for wheel buttons click
+wheelBtns.addEventListener('click', handleWheelBtnClick);
