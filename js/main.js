@@ -5,6 +5,7 @@ const intColorBtns = document.querySelector('#interior-buttons');
 const extImg = document.querySelector('#exterior-image');
 const intImg = document.querySelector('#interior-image');
 const wheelBtns = document.querySelector('#wheel-buttons');
+const performanceBtn = document.querySelector('#performance-btn');
 
 // Globals
 let selectedColor = 'Stealth Grey';
@@ -23,7 +24,6 @@ const handleScroll = () => {
     const atTop =  window.scrollY === 0;
     topBar.classList.toggle('visible-bar', atTop ); // if atTop is true
     topBar.classList.toggle('hidden-bar', !atTop ); // if atTop is false 
-
 };
 
 // Image Mapping
@@ -130,9 +130,38 @@ const handleWheelBtnClick = (event) => {
         updateExtImage();
         
     }
-}
+};
+
+// Performance Package Selection
+const handlePerformanceBtnClick = () => {
+
+    performanceBtn.classList.toggle('bg-gray-700');
+    performanceBtn.classList.toggle('text-white');
+
+    /* The .toggle() method, used on the classList property, adds or 
+        removes a class from an element's list of classes. 
+        
+        Here's how it works:
+        Behavior of .toggle():
+
+        1. If the class is not present on the element:
+            The method adds the specified class.
+
+        2. If the class is already present on the element:
+            The method removes the specified class.
+            
+        Optional Return Value:
+
+        The method also returns a boolean:
+
+            true if the class was added.
+            false if the class was removed.
+        */
+};
 
 // Event Listeners
+
+// Listen for Scroll Event in Window
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll)); 
 /* The requestAnimationFrame() method is used to optimize the performance of the handleScroll function during a scroll event. 
 
@@ -161,3 +190,6 @@ intColorBtns.addEventListener('click', handleColorBtnClick);
 
 // Listen for wheel buttons click
 wheelBtns.addEventListener('click', handleWheelBtnClick);
+
+// Listen for performance button click
+performanceBtn.addEventListener('click', handlePerformanceBtnClick);
