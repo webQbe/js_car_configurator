@@ -75,7 +75,7 @@ const updateTotalPrice = () => {
 
         // Extract current accessory's label
         const accessoryLabel = checkbox
-        .closest('label') // Get closest label element
+        .closest('label')  // Find the nearest <label> ancestor
         .querySelector('span') // Select only the first <span> element
         .textContent.trim(); // Get span text
 
@@ -102,6 +102,45 @@ const updatePaymentBreakdown = () => {
     // Calculate Down Payment
     const downPay = currentPrice * 0.1;
     downPayOutput.textContent = `$${downPay.toLocaleString()}`;
+
+    // Calculate loan details (assuming 60-month & 3% interest rate)
+    const loanMonths = 60;
+    const interestRate = 0.03;
+    const loanAmount = currentPrice - downPay;
+    const monthlyInterestRate = interestRate / 12;
+
+    // Calculate Monthly Payment with Formula 
+    const monthlyPay = (loanAmount * (monthlyInterestRate * 
+                            Math.pow(1 + monthlyInterestRate, loanMonths))) / 
+                                (Math.pow(1 + monthlyInterestRate, loanMonths) - 1);
+                            /* Math.pow() calculates the power of a number by raising a base to an exponent. 
+                                Math.pow(base, exponent);  
+                            */
+
+    /* calculates the monthly payment for a loan, commonly referred to as an EMI (Equated Monthly Installment).  
+    
+    How It Works:
+
+        Numerator:
+        loanAmount × (monthlyInterestRate × (1 + monthlyInterestRate) ^ loanMonths)
+
+            This calculates the growth of the principal amount due to compound interest over the loan term.
+
+        Denominator:
+        (1 + monthlyInterestRate) ^ loanMonths − 1
+
+            This adjusts for the effect of the periodic payments reducing the outstanding principal over time.
+
+        Result: 
+        The division of the numerator by the denominator gives the fixed monthly payment amount.
+    
+    */
+
+    // Output Monthly Payment
+    monthlyPayOutput.textContent = `$${monthlyPay
+                                        .toFixed(2) // Add 2 decimal places
+                                        .toLocaleString()}`; // Format with 1000 separators
+
 
 };
 
@@ -139,8 +178,9 @@ const handleColorBtnClick = (event) => {
     console.log(event.target.tagName); // Log clicked tag name
 
     if(event.target.tagName === 'IMG'){
-        // If img element is clicked, get closest button
-        button = event.target.closest('button');
+        // If img element is clicked, 
+        // find the nearest button ancestor
+        button = event.target.closest('button'); 
 
     } else if(event.target.tagName === 'BUTTON'){
         // If button element is clicked, get target 
