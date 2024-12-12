@@ -8,7 +8,7 @@ const wheelBtns = document.querySelector('#wheel-buttons');
 const performanceBtn = document.querySelector('#performance-btn');
 const totalPriceOutput = document.querySelector('#total-price');
 const fullSelfDriveOption = document.querySelector('#full-self-driving-checkbox');
-
+const accessoryCheckBoxes = document.querySelectorAll('.accessory-form-checkbox');
 
 
 // Globals
@@ -67,6 +67,25 @@ const updateTotalPrice = () => {
         // Append 'Full Self-Driving' price to current price
         currentPrice += pricing['Full Self-Driving'];
     }
+
+    // Accessory Checkboxes
+    accessoryCheckBoxes.forEach((checkbox) => {
+
+        // Extract current accessory's label
+        const accessoryLabel = checkbox
+        .closest('label') // Get closest label element
+        .querySelector('span') // Select only the first <span> element
+        .textContent.trim(); // Get span text
+
+    // Get price of current accessory 
+    const accessoryPrice = pricing['Accessories'][accessoryLabel];
+
+    // Add to current price if current accessory is selected
+    if(checkbox.checked){
+                currentPrice += accessoryPrice;
+            }
+
+    });
 
 
     // Update Total Price in UI
@@ -230,19 +249,23 @@ const handlePerformanceBtnClick = () => {
 // Full Self-Driving Selection
 const fullSelfDriveMode = () => {
 
-    // Set isChecked to True if the checkbox is checked
-    const isChecked = fullSelfDriveOption.checked;
-
-    // Select 'Full Self-Driving' option if isChecked is true
-    selectedOptions['Full Self-Driving'] = isChecked;
+    // Select 'Full Self-Driving' option if
+    // fullSelfDriveOption is checked
+    selectedOptions['Full Self-Driving'] = fullSelfDriveOption.checked;
 
     // Get Total Price
     updateTotalPrice();
 
-}
+};
+
 
 
 // Event Listeners
+
+// Listen for change events in accessory check boxes
+accessoryCheckBoxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => updateTotalPrice())
+});
 
 // Listen for Scroll Event in Window
 window.addEventListener('scroll', () => requestAnimationFrame(handleScroll)); 
@@ -279,3 +302,4 @@ performanceBtn.addEventListener('click', handlePerformanceBtnClick);
 
 // Listen for fullSelfDriveOption checkbox change
 fullSelfDriveOption.addEventListener('change', fullSelfDriveMode);
+
