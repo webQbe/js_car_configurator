@@ -9,6 +9,8 @@ const performanceBtn = document.querySelector('#performance-btn');
 const totalPriceOutput = document.querySelector('#total-price');
 const fullSelfDriveOption = document.querySelector('#full-self-driving-checkbox');
 const accessoryCheckBoxes = document.querySelectorAll('.accessory-form-checkbox');
+const downPayOutput = document.querySelector('#down-payment');
+const monthlyPayOutput = document.querySelector('#monthly-payment');
 
 
 // Globals
@@ -87,9 +89,19 @@ const updateTotalPrice = () => {
 
     });
 
-
     // Update Total Price in UI
     totalPriceOutput.textContent = `$${currentPrice.toLocaleString()}`;
+
+    // Calculate & Output down pay
+    updatePaymentBreakdown();
+};
+
+// Update Payment Breakdown based on Current Price
+const updatePaymentBreakdown = () => {
+
+    // Calculate Down Payment
+    const downPay = currentPrice * 0.1;
+    downPayOutput.textContent = `$${downPay.toLocaleString()}`;
 
 };
 
@@ -258,7 +270,8 @@ const fullSelfDriveMode = () => {
 
 };
 
-
+// Intialize updateTotalPrice()
+updateTotalPrice();
 
 // Event Listeners
 
