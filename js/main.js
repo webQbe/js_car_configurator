@@ -7,6 +7,9 @@ const intImg = document.querySelector('#interior-image');
 const wheelBtns = document.querySelector('#wheel-buttons');
 const performanceBtn = document.querySelector('#performance-btn');
 const totalPriceOutput = document.querySelector('#total-price');
+const fullSelfDriveOption = document.querySelector('#full-self-driving-checkbox');
+
+
 
 // Globals
 
@@ -41,6 +44,7 @@ const updateTotalPrice = () => {
     // Reset Current Price to Base Price
     currentPrice = basePrice;
 
+    // Performance Wheels Option
     if(selectedOptions['Performance Wheels']){
 
         // If 'Performance Wheels' option is selected
@@ -48,11 +52,20 @@ const updateTotalPrice = () => {
         currentPrice += pricing['Performance Wheels'];
     }
 
+    // Performance Package Option
     if(selectedOptions['Performance Package']){
 
         // If 'Performance Package' option is selected
         // Append 'Performance Package' price to current price
         currentPrice += pricing['Performance Package'];
+    }
+
+    // Full Self-Driving Option
+    if(selectedOptions['Full Self-Driving']){
+
+        // If 'Full Self-Driving' option is selected
+        // Append 'Full Self-Driving' price to current price
+        currentPrice += pricing['Full Self-Driving'];
     }
 
 
@@ -214,7 +227,19 @@ const handlePerformanceBtnClick = () => {
 
 };
 
+// Full Self-Driving Selection
+const fullSelfDriveMode = () => {
 
+    // Set isChecked to True if the checkbox is checked
+    const isChecked = fullSelfDriveOption.checked;
+
+    // Select 'Full Self-Driving' option if isChecked is true
+    selectedOptions['Full Self-Driving'] = isChecked;
+
+    // Get Total Price
+    updateTotalPrice();
+
+}
 
 
 // Event Listeners
@@ -251,3 +276,6 @@ wheelBtns.addEventListener('click', handleWheelBtnClick);
 
 // Listen for performance button click
 performanceBtn.addEventListener('click', handlePerformanceBtnClick);
+
+// Listen for fullSelfDriveOption checkbox change
+fullSelfDriveOption.addEventListener('change', fullSelfDriveMode);
