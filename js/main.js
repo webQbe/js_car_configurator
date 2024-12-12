@@ -46,8 +46,15 @@ const updateTotalPrice = () => {
         // If 'Performance Wheels' option is selected
         // Append 'Performance Wheels' price to current price
         currentPrice += pricing['Performance Wheels'];
-
     }
+
+    if(selectedOptions['Performance Package']){
+
+        // If 'Performance Package' option is selected
+        // Append 'Performance Package' price to current price
+        currentPrice += pricing['Performance Package'];
+    }
+
 
     // Update Total Price in UI
     totalPriceOutput.textContent = `$${currentPrice.toLocaleString()}`;
@@ -175,7 +182,8 @@ const handleWheelBtnClick = (event) => {
 // Performance Package Selection
 const handlePerformanceBtnClick = () => {
 
-    performanceBtn.classList.toggle('bg-gray-700');
+    // isSelected is set to True if .bg-gray-700 class was added
+    const isSelected = performanceBtn.classList.toggle('bg-gray-700');
     performanceBtn.classList.toggle('text-white');
     /* The .toggle() method, used on the classList property, adds or 
         removes a class from an element's list of classes. 
@@ -196,6 +204,13 @@ const handlePerformanceBtnClick = () => {
             true if the class was added.
             false if the class was removed.
         */
+
+    // Update Selected Options
+    // Select option based if isSelected is True
+    selectedOptions['Performance Package'] = isSelected;
+
+    // Get Total Price
+    updateTotalPrice();
 
 };
 
